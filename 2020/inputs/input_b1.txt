@@ -1,32 +1,32 @@
-B-
--B
+BU
+UB
 
--B-
---B
-B-B
+UBU
+UUB
+BUB
 
--B-B
-B--B
--B--
-B--B
+UBUB
+BUUB
+UBUU
+BUUB
 
-BBB-B
-B----
-B---B
-----B
-B-BBB
+BBBUB
+BUUUU
+BUUUB
+UUUUB
+BUBBB
 
-B-B-B-
--B--B-
-B--B-B
--B--B-
-B---B-
+BUBUBU
+UBUUBU
+BUUBUB
+UBUUBU
+BUUUBU
 
----B-B--
--B--B---
----B--B-
-B------B
---B--B--
--B-----B
---B-B---
--B----B-
+UUUBUBUU
+UBUUBUUU
+UUUBUUBU
+BUUUUUUB
+UUBUUBUU
+UBUUUUUB
+UUBUBUUU
+UBUUUUBU
