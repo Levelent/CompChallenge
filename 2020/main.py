@@ -5,6 +5,7 @@ from typing import List
 
 
 def chain(grid: List[List[str]]) -> bool:
+    print(grid)
 
     return True
 
@@ -38,7 +39,7 @@ def chain_blocker(n: int, k: int) -> List[List[str]]:
 
 
 def grid_input(letter, func):
-    with open(f"inputs/input_{letter}.txt") as file:
+    with open(f"inputs/input_{letter}.txt", encoding="utf-8") as file:
         gs = file.read().split("\n\n")
     outputs = []
     print(f"------ Challenge {letter.upper()} ------")
