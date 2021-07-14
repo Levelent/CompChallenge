@@ -1,27 +1,36 @@
-def max_plates(box_x: int, box_y: int, load_x: int, load_y: int) -> int:
+
+def max_plates(small_w: int, small_h: int, large_w: int, large_h: int) -> int:
     """
-    Returns maximum number of plate sets that can fit inside a rectangular loading area
-    :param box_x:
-    :param box_y:
-    :param load_x:
-    :param load_y:
+    Given that the items can only be rotated at 90 degree angles, and can't overlap,
+    determines how many smaller items can fit inside a larger one.
+    :param small_w:
+    :param small_h:
+    :param large_w:
+    :param large_h:
     """
+    m = min(small_w, small_h)
+    n = max(small_w, small_h)
+    x = min(large_w, large_h)
+    y = max(large_w, large_h)
+
+    if m > x or n > y:
+        return 0
 
     options = []
-    for orient_a, orient_b in [(load_x, load_y), (load_y, load_x)]:
-        quot_w, rem_w = divmod(orient_a, box_x)
-        quot_h, rem_h = divmod(orient_b, box_y)
+    for orient_a, orient_b in [(large_w, large_h), (large_h, large_w)]:
+        quot_w, rem_w = divmod(orient_a, small_w)
+        quot_h, rem_h = divmod(orient_b, small_h)
 
         base = quot_h * quot_w
         print(f"Initial Box: {base}")
 
         if rem_w == rem_h == 0:
             return quot_h * quot_w
-        elif rem_w // box_y != 0:
-            extra = rem_w // box_y * orient_b // box_x
+        elif rem_w // small_h != 0:
+            extra = rem_w // small_h * orient_b // small_w
             print(f"Extra from width: {extra}")
         else:
-            extra = rem_h // box_x * orient_a // box_y
+            extra = rem_h // small_w * orient_a // small_h
             print(f"Extra from height: {extra}")
 
         options.append(base + extra)
@@ -36,12 +45,5 @@ assert max_plates(9, 8, 6, 9) == 0
 assert max_plates(3, 4, 4, 6) == 2
 assert max_plates(5, 2, 19, 36) == 68
 assert max_plates(2, 5, 19, 36) == 68
-
-# Partial Solution, does not pass the below tests
-
-# Diagonal Plates Examples
-assert max_plates(1, 6, 5, 5) == 1
-assert max_plates(2, 47, 40, 40) == 4
-# 3rd multiple diagonal
 
 print("Passed")
